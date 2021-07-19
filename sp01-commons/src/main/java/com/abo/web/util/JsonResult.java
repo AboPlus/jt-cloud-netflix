@@ -3,6 +3,10 @@ package com.abo.web.util;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * 响应结果处理类
+ * @author Abo
+ */
 @Getter
 @Setter
 public class JsonResult<T> {

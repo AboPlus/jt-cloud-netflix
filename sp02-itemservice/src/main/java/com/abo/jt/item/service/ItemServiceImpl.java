@@ -1,4 +1,4 @@
-package com.abo.sp02.item.service;
+package com.abo.jt.item.service;
 
 import com.abo.jt.pojo.Item;
 import com.abo.jt.service.ItemService;

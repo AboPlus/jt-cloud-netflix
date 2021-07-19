@@ -34,6 +34,7 @@ import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * JSON串和对象转换工具类
  * @author Abo
  */
 @Slf4j

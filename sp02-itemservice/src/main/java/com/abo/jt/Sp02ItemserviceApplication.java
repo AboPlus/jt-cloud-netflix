@@ -1,8 +1,11 @@
-package com.abo.sp02;
+package com.abo.jt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Abo
+ */
 @SpringBootApplication
 public class Sp02ItemserviceApplication {
 

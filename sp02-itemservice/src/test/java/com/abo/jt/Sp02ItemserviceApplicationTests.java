@@ -1,4 +1,4 @@
-package com.abo.sp02;
+package com.abo.jt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
