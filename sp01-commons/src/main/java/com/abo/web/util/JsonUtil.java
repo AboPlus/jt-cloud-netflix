@@ -39,6 +39,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class JsonUtil {
+
     private static ObjectMapper mapper;
     private static JsonInclude.Include DEFAULT_PROPERTY_INCLUSION = JsonInclude.Include.NON_DEFAULT;
     private static boolean IS_ENABLE_INDENT_OUTPUT = false;
