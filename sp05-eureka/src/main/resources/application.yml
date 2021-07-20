@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 2001
+eureka:
+  instance:
+    hostname: eureka1 # 主机名，为了区分集群中的不同服务器
+    lease-expiration-duration-in-seconds: 90 # 最后一次心跳后，间隔多久认定微服务不可用，默认90秒
+  server:
+    enable-self-preservation: false # 禁用保护模式
+  client:
+    # 单台服务器不注册、不拉取
+    register-with-eureka: false # 不注册
+    fetch-registry: false # 不拉取
