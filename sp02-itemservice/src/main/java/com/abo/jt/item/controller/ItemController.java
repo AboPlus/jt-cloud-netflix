@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Abo
@@ -31,9 +32,16 @@ public class ItemController {
      * @return
      */
     @GetMapping("/{orderId}")
-    public JsonResult<List<Item>> getItems(@PathVariable String orderId){
+    public JsonResult<List<Item>> getItems(@PathVariable String orderId) throws InterruptedException {
         log.info("server.port is {},and orderId is {}",port,orderId);
         List<Item> items = itemService.getItems(orderId);
+        // 为了测试响应超时失败，添加随机延迟代码
+        if (Math.random() < 0.9 ) {
+            // Math.random()取值范围：[0,1)  90%概率执行延迟代码
+            int t = new Random().nextInt(5000);//随机时长 0~5秒
+            log.info("延迟:{}秒",t);
+            Thread.sleep(t);
+        }
         return JsonResult.ok(items).msg("port= "+port);
     }
 

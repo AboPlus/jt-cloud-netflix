@@ -48,4 +48,9 @@ public class OrderController {
         return JsonResult.ok();
     }
 
+    @GetMapping("/favicon.ico")
+    public void ico(){
+        // 空方法
+    }
+
 }
