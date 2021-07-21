@@ -1,0 +1,13 @@
+# item                    8001
+# user                    8101
+# order                   8201
+# eureka                  2001
+# zuul                    3001
+# hystrix-dashboard       4001
+server:
+  port: 4001
+
+hystrix:
+  dashboard:
+    # 允许抓取的服务器列表
+    proxy-stream-allow-list: localhost

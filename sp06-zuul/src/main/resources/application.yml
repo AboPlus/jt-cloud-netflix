@@ -19,7 +19,7 @@ zuul:
     item-service: /item-service/**
     user-service: /user-service/**
     order-service: /order-service/**
-  retryable: false
+  retryable: true
 
 #hystrix:
 #  command:
@@ -28,3 +28,9 @@ zuul:
 #        isolation:
 #          thread:
 #            timeoutInMilliseconds: 500
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
