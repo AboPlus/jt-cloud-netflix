@@ -5,12 +5,17 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
+import org.bouncycastle.util.encoders.UTF8;
+import org.springframework.cloud.netflix.ribbon.apache.HttpClientStatusCodeException;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpStatusCodeException;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.MediaType;
+import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
+import java.nio.charset.Charset;
 
 /**
  * 模拟判断是否登录
@@ -44,6 +49,8 @@ public class LoginFilter extends ZuulFilter {
      * 设置过滤器的顺序号
      * 以pre过滤器为例，在自定义pre过滤器后，其内部其实已经有一组pre过滤器，
      * filterOrder()决定我们自定义的过滤器放在哪个位置
+     *
+     * 上下文对象是在第五个过滤器中设置的，所以我们自定义设置的过滤器要在5之后
      * @return
      */
     @Override
@@ -94,8 +101,8 @@ public class LoginFilter extends ZuulFilter {
             // 阻止继续调用
             currentContext.setSendZuulResponse(false);
             // 直接返回响应  {code:400,msg:not login,data:null}
-            String jsonResult = JsonResult.err().code(JsonResult.NOT_LOGIN).msg("未登录！").toString();
-            currentContext.addZuulResponseHeader("Content-type", MediaType.APPLICATION_JSON);
+            String jsonResult = JsonResult.err().code(HttpServletResponse.SC_UNAUTHORIZED).msg("未登录！").toString();
+            currentContext.addZuulResponseHeader("Content-type", MediaType.APPLICATION_JSON_UTF8_VALUE);
             currentContext.setResponseBody(jsonResult);
         }
         // 在当前zuul版本中，这个返回值没有任何作用
