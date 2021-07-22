@@ -2,7 +2,9 @@
 spring:
   application:
     name: item-service
-
+  cloud:
+    config:
+      override-none: true
 # item    8001
 # user    8101
 # order   8201
@@ -12,3 +14,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka
+
