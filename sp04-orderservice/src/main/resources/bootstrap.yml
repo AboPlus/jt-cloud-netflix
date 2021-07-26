@@ -1,0 +1,12 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true #允许从注册表拉取配置地址
+      name: order-service
+      profile: dev
