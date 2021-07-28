@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/AboPlus/jt-cloud-netflix
           search-paths: config
- rabbitmq:
+  rabbitmq:
    host: 192.168.64.140
    username: admin
    password: admin
@@ -19,3 +19,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
