@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    inetutils:
+      ignored-interfaces: # 忽略的网卡
+        - VM.*	# VM开头， .*任意字符 0到多个
+      preferred-networks: # 要是用的网卡的网段
+        - 192\.168\.12\..+	# .+ 任意字符 1到多个  自己的物理网络ip
