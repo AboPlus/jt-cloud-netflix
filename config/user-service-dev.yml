@@ -8,6 +8,9 @@ spring:
     host: 192.168.64.140
     username: admin
     password: admin
+  zipkin:
+    sender:
+      type: rabbit
 server:
   port: 8101
 # 自定义配置属性
