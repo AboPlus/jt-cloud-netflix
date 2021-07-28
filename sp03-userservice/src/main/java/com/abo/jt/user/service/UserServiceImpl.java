@@ -6,15 +6,18 @@ import com.abo.web.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
+ * @RefreshScope 只有添加了该注解，刷新到新的用户数据，才能重新注入到这个对象（这里指@Value）
  * @author Abo
  */
 @Slf4j
 @Service
+@RefreshScope
 public class UserServiceImpl implements UserService {
 
     @Value("${sp.user-service.users}")
